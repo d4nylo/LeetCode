@@ -62,4 +62,25 @@ public static class Algos
 
         return true;
     }
+
+    // https://leetcode.com/problems/two-sum/
+    // Time Complexity: O(n) & Space Complexity: O(n)
+    public static int[] TwoSum(int[] nums, int target)
+    {
+        var map = new Dictionary<int, int>();
+
+        for (var idx = 0; idx < nums.Length; idx++)
+        {
+            var diff = target - nums[idx];
+
+            if (map.ContainsKey(diff))
+            {
+                return new int[] {map[diff], idx};
+            }
+
+            map.TryAdd(nums[idx], idx);
+        }
+
+        return new int[] {-1, -1};
+    }
 }
