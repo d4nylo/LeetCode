@@ -46,4 +46,36 @@ public class AlgosTests
 
         #endregion
     }
+
+    [Fact]
+    public void Is_Anagram()
+    {
+        #region Example 1
+
+        // Arrange
+        const string s1 = "anagram";
+        const string t1 = "nagaram";
+
+        // Act
+        var output1 = Algos.IsAnagram(s1, t1);
+
+        // Assert
+        Assert.True(output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        const string s2 = "rat";
+        const string t2 = "car";
+
+        // Act
+        var output2 = Algos.IsAnagram(s2, t2);
+
+        // Assert
+        Assert.False(output2);
+
+        #endregion
+    }
 }

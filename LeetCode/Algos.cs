@@ -6,18 +6,60 @@ public static class Algos
     // Time Complexity: O(n) & Space Complexity: O(n)
     public static bool ContainsDuplicate(int[] nums)
     {
-        var hash = new HashSet<int>();
+        var set = new HashSet<int>();
 
         for (var idx = 0; idx < nums.Length; idx++)
         {
-            if (hash.Contains(nums[idx]))
+            if (set.Contains(nums[idx]))
             {
                 return true;
             }
 
-            hash.Add(nums[idx]);
+            set.Add(nums[idx]);
         }
 
         return false;
+    }
+
+    // https://leetcode.com/problems/valid-anagram/
+    // Time Complexity: O(s+t) & Space Complexity: O(s+t)
+    public static bool IsAnagram(string s, string t)
+    {
+        if (s.Length != t.Length)
+        {
+            return false;
+        }
+
+        var mapS = new Dictionary<char, int>();
+        var mapT = new Dictionary<char, int>();
+
+        for (var idx = 0; idx < s.Length; idx++)
+        {
+            if (!mapS.ContainsKey(s[idx]))
+            {
+                mapS.Add(s[idx], 0);
+            }
+
+            mapS[s[idx]]++;
+
+            if (!mapT.ContainsKey(t[idx]))
+            {
+                mapT.Add(t[idx], 0);
+            }
+
+            mapT[t[idx]]++;
+        }
+
+        foreach (var key in mapS.Keys)
+        {
+            mapT.TryGetValue(key, out var val);
+
+            if (mapS[key] != val)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
