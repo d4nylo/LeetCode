@@ -83,4 +83,43 @@ public static class Algos
 
         return new int[] {-1, -1};
     }
+
+    // https://leetcode.com/problems/group-anagrams/
+    public static IList<IList<string>> GroupAnagrams(string[] strs)
+    {
+        var res = new List<IList<string>>();
+
+        if (strs.Length == 0)
+        {
+            return res;
+        }
+
+        var map = new Dictionary<string, List<string>>();
+
+        foreach (var s in strs)
+        {
+            var hash = new char[26];
+
+            foreach (var c in s.ToCharArray())
+            {
+                hash[c - 'a']++;
+            }
+
+            var str = new string(hash);
+
+            if (!map.ContainsKey(str))
+            {
+                map.Add(str, new List<string>());
+            }
+
+            map[str].Add(s);
+        }
+
+        foreach (var val in map.Values)
+        {
+            res.Add(val);
+        }
+
+        return res;
+    }
 }

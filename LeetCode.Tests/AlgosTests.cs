@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using FluentAssertions;
 using Xunit;
 
 namespace LeetCode.Tests;
@@ -121,6 +123,57 @@ public class AlgosTests
 
         // Assert
         Assert.Equal(new int[] {0, 1}, output3);
+
+        #endregion
+    }
+
+    [Fact]
+    public void Group_Anagrams()
+    {
+        #region Example 1
+
+        // Arrange
+        string[] strs1 = {"eat", "tea", "tan", "ate", "nat", "bat"};
+
+        // Act
+        var output1 = Algos.GroupAnagrams(strs1);
+
+        // Assert
+        IList<IList<string>> expected1 = new List<IList<string>>();
+        expected1.Add(new string[] {"bat"});
+        expected1.Add(new string[] {"nat", "tan"});
+        expected1.Add(new string[] {"ate", "eat", "tea"});
+        output1.Should().BeEquivalentTo(expected1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        string[] strs2 = {""};
+
+        // Act
+        var output2 = Algos.GroupAnagrams(strs2);
+
+        // Assert
+        IList<IList<string>> expected2 = new List<IList<string>>();
+        expected2.Add(new string[] {""});
+        output2.Should().BeEquivalentTo(expected2);
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        string[] strs3 = {"a"};
+
+        // Act
+        var output3 = Algos.GroupAnagrams(strs3);
+
+        // Assert
+        IList<IList<string>> expected3 = new List<IList<string>>();
+        expected3.Add(new string[] {"a"});
+        output3.Should().BeEquivalentTo(expected3);
 
         #endregion
     }
