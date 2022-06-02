@@ -140,4 +140,29 @@ public static class Algos
 
         return occurrences.OrderByDescending(x => x.Value).Take(k).Select(x => x.Key).ToArray();
     }
+
+    public static int[] ProductExceptSelf(int[] nums)
+    {
+        var res = new int[nums.Length];
+
+        res[0] = 1;
+
+        var prefix = 1;
+
+        for (var idx = 0; idx < nums.Length; idx++)
+        {
+            res[idx] = prefix;
+            prefix *= nums[idx];
+        }
+
+        var postfix = 1;
+
+        for (var idx = nums.Length - 1; idx >= 0; idx--)
+        {
+            res[idx] *= postfix;
+            postfix *= nums[idx];
+        }
+
+        return res;
+    }
 }

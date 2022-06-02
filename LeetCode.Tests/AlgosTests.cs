@@ -209,4 +209,34 @@ public class AlgosTests
 
         #endregion
     }
+
+    [Fact]
+    public void Product_Except_Self()
+    {
+        #region Example 1
+
+        // Arrange
+        var nums1 = new int[] {1, 2, 3, 4};
+
+        // Act
+        var output1 = Algos.ProductExceptSelf(nums1);
+
+        // Assert
+        Assert.Equal(new int[] {24, 12, 8, 6}, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var nums2 = new int[] {-1, 1, 0, -3, 3};
+
+        // Act
+        var output2 = Algos.ProductExceptSelf(nums2);
+
+        // Assert
+        Assert.Equal(new int[] {0, 0, 9, 0, 0}, output2);
+
+        #endregion
+    }
 }
