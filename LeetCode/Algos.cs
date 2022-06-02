@@ -122,4 +122,22 @@ public static class Algos
 
         return res;
     }
+
+    // https://leetcode.com/problems/top-k-frequent-elements/
+    public static int[] TopKFrequent(int[] nums, int k)
+    {
+        var occurrences = new Dictionary<int, int>();
+
+        foreach (var num in nums)
+        {
+            if (!occurrences.ContainsKey(num))
+            {
+                occurrences.Add(num, 0);
+            }
+
+            occurrences[num]++;
+        }
+
+        return occurrences.OrderByDescending(x => x.Value).Take(k).Select(x => x.Key).ToArray();
+    }
 }

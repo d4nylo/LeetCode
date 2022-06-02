@@ -177,4 +177,36 @@ public class AlgosTests
 
         #endregion
     }
+
+    [Fact]
+    public void Top_K_Frequent()
+    {
+        #region Example 1
+
+        // Arrange
+        var nums1 = new int[] {1, 1, 1, 2, 2, 3};
+        const int k1 = 2;
+
+        // Act
+        var output1 = Algos.TopKFrequent(nums1, k1);
+
+        // Assert
+        Assert.Equal(new int[] {1, 2}, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var nums2 = new int[] {1};
+        const int k2 = 1;
+
+        // Act
+        var output2 = Algos.TopKFrequent(nums2, k2);
+
+        // Assert
+        Assert.Equal(new int[] {1}, output2);
+
+        #endregion
+    }
 }
