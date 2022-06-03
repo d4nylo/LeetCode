@@ -239,4 +239,56 @@ public class AlgosTests
 
         #endregion
     }
+
+    [Fact]
+    public void Is_Valid_Sudoku()
+    {
+        #region Example 1
+
+        // Arrange
+        char[][] board1 =
+        {
+            new char[] {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+            new char[] {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+            new char[] {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+            new char[] {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+            new char[] {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+            new char[] {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+            new char[] {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+            new char[] {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+            new char[] {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        // Act
+        var output1 = Algos.IsValidSudoku(board1);
+
+        // Assert
+        Assert.True(output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        char[][] board2 =
+        {
+            new char[] {'8', '3', '.', '.', '7', '.', '.', '.', '.'},
+            new char[] {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+            new char[] {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+            new char[] {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+            new char[] {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+            new char[] {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+            new char[] {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+            new char[] {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+            new char[] {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        // Act
+        var output2 = Algos.IsValidSudoku(board2);
+
+        // Assert
+        Assert.False(output2);
+
+        #endregion
+    }
 }

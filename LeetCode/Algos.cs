@@ -165,4 +165,29 @@ public static class Algos
 
         return res;
     }
+
+    public static bool IsValidSudoku(char[][] board)
+    {
+        var seen = new HashSet<string>();
+
+        for (var i = 0; i < 9; i++)
+        {
+            for (var j = 0; j < 9; j++)
+            {
+                var currentValue = board[i][j];
+
+                if (currentValue != '.')
+                {
+                    if (!seen.Add($"{currentValue} found in row {i}") ||
+                        !seen.Add($"{currentValue} found in column {j}") ||
+                        !seen.Add($"{currentValue} found in sub box {i / 3} - {j / 3}"))
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
 }
