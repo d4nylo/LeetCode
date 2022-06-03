@@ -141,6 +141,7 @@ public static class Algos
         return occurrences.OrderByDescending(x => x.Value).Take(k).Select(x => x.Key).ToArray();
     }
 
+    // https://leetcode.com/problems/product-of-array-except-self/
     public static int[] ProductExceptSelf(int[] nums)
     {
         var res = new int[nums.Length];
@@ -166,6 +167,7 @@ public static class Algos
         return res;
     }
 
+    // https://leetcode.com/problems/valid-sudoku/
     public static bool IsValidSudoku(char[][] board)
     {
         var seen = new HashSet<string>();
@@ -189,5 +191,35 @@ public static class Algos
         }
 
         return true;
+    }
+
+    // https://leetcode.com/problems/longest-consecutive-sequence/
+    public static int LongestConsecutive(int[] nums)
+    {
+        var numsSet = new HashSet<int>(nums);
+
+        var maxSequenceLength = 0;
+
+        for (var idx = 0; idx < nums.Length; idx++)
+        {
+            var currentNum = nums[idx];
+            var currentSequenceLength = 1;
+
+            if (!numsSet.Contains(currentNum - 1))
+            {
+                while (numsSet.Contains(currentNum + 1))
+                {
+                    currentNum++;
+                    currentSequenceLength++;
+                }
+
+                if (currentSequenceLength > maxSequenceLength)
+                {
+                    maxSequenceLength = currentSequenceLength;
+                }
+            }
+        }
+
+        return maxSequenceLength;
     }
 }

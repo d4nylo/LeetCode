@@ -291,4 +291,34 @@ public class AlgosTests
 
         #endregion
     }
+
+    [Fact]
+    public void Longest_Consecutive()
+    {
+        #region Example 1
+
+        // Arrange
+        var nums1 = new int[] {100, 4, 200, 1, 3, 2};
+
+        // Act
+        var output1 = Algos.LongestConsecutive(nums1);
+
+        // Assert
+        Assert.Equal(4, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var nums2 = new int[] {0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
+
+        // Act
+        var output2 = Algos.LongestConsecutive(nums2);
+
+        // Assert
+        Assert.Equal(9, output2);
+
+        #endregion
+    }
 }
