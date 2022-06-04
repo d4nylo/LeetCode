@@ -262,5 +262,32 @@ public static class Algos
         return true;
     }
 
+    // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+    public static int[] TwoSum2(int[] numbers, int target)
+    {
+        var left = 0;
+        var right = numbers.Length - 1;
+
+        while (left < right)
+        {
+            var currSum = numbers[left] + numbers[right];
+
+            if (currSum > target)
+            {
+                right--;
+            }
+            else if (currSum < target)
+            {
+                left++;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        return new int[] {left + 1, right + 1};
+    }
+
     #endregion
 }

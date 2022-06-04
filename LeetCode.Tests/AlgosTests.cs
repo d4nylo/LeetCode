@@ -371,5 +371,51 @@ public class AlgosTests
         #endregion
     }
 
+    [Fact]
+    public void Two_Sum_2()
+    {
+        #region Example 1
+
+        // Arrange
+        var numbers1 = new int[] {2, 7, 11, 15};
+        const int target1 = 9;
+
+        // Act
+        var output1 = Algos.TwoSum2(numbers1, target1);
+
+        // Assert
+        Assert.Equal(new int[] {1, 2}, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var numbers2 = new int[] {2, 3, 4};
+        const int target2 = 6;
+
+        // Act
+        var output2 = Algos.TwoSum2(numbers2, target2);
+
+        // Assert
+        Assert.Equal(new int[] {1, 3}, output2);
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        var numbers3 = new int[] {-1, 0};
+        const int target3 = -1;
+
+        // Act
+        var output3 = Algos.TwoSum2(numbers3, target3);
+
+        // Assert
+        Assert.Equal(new int[] {1, 2}, output3);
+
+        #endregion
+    }
+
     #endregion
 }
