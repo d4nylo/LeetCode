@@ -334,5 +334,34 @@ public static class Algos
         return res;
     }
 
+    // https://leetcode.com/problems/container-with-most-water/
+    public static int MaxArea(int[] height)
+    {
+        var maxArea = 0;
+        var left = 0;
+        var right = height.Length - 1;
+
+        while (left < right)
+        {
+            var currArea = (right - left) * Math.Min(height[left], height[right]);
+
+            if (currArea > maxArea)
+            {
+                maxArea = currArea;
+            }
+
+            if (height[left] < height[right])
+            {
+                left++;
+            }
+            else
+            {
+                right--;
+            }
+        }
+
+        return maxArea;
+    }
+
     #endregion
 }

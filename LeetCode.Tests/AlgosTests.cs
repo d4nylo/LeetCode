@@ -463,5 +463,35 @@ public class AlgosTests
         #endregion
     }
 
+    [Fact]
+    public void Max_Area()
+    {
+        #region Example 1
+
+        // Arrange
+        var height1 = new int[] {1, 8, 6, 2, 5, 4, 8, 3, 7};
+
+        // Act
+        var output1 = Algos.MaxArea(height1);
+
+        // Assert
+        Assert.Equal(49, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var height2 = new int[] {1, 1};
+
+        // Act
+        var output2 = Algos.MaxArea(height2);
+
+        // Assert
+        Assert.Equal(1, output2);
+
+        #endregion
+    }
+
     #endregion
 }
