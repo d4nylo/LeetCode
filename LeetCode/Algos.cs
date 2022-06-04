@@ -289,5 +289,50 @@ public static class Algos
         return new int[] {left + 1, right + 1};
     }
 
+    // https://leetcode.com/problems/3sum/
+    public static IList<IList<int>> ThreeSum(int[] nums)
+    {
+        var res = new List<IList<int>>();
+
+        Array.Sort(nums);
+
+        for (var idx = 0; idx < nums.Length; idx++)
+        {
+            if (idx > 0 && nums[idx] == nums[idx - 1])
+            {
+                continue;
+            }
+
+            var left = idx + 1;
+            var right = nums.Length - 1;
+
+            while (left < right)
+            {
+                var threeSum = nums[idx] + nums[left] + nums[right];
+
+                if (threeSum > 0)
+                {
+                    right--;
+                }
+                else if (threeSum < 0)
+                {
+                    left++;
+                }
+                else
+                {
+                    res.Add(new List<int>() {nums[idx], nums[left], nums[right]});
+                    left++;
+
+                    while (nums[left] == nums[left - 1] && left < right)
+                    {
+                        left++;
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+
     #endregion
 }

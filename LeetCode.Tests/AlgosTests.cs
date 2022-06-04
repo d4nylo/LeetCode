@@ -417,5 +417,51 @@ public class AlgosTests
         #endregion
     }
 
+    [Fact]
+    public void Three_Sum()
+    {
+        #region Example 1
+
+        // Arrange
+        int[] nums1 = {-1, 0, 1, 2, -1, -4};
+
+        // Act
+        var output1 = Algos.ThreeSum(nums1);
+
+        // Assert
+        IList<IList<int>> expected1 = new List<IList<int>>();
+        expected1.Add(new int[] {-1, -1, 2});
+        expected1.Add(new int[] {-1, 0, 1});
+        output1.Should().BeEquivalentTo(expected1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        int[] nums2 = { };
+
+        // Act
+        var output2 = Algos.ThreeSum(nums2);
+
+        // Assert
+        output2.Should().BeEquivalentTo(new List<IList<int>>());
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        int[] nums3 = {0};
+
+        // Act
+        var output3 = Algos.ThreeSum(nums3);
+
+        // Assert
+        output3.Should().BeEquivalentTo(new List<IList<int>>());
+
+        #endregion
+    }
+
     #endregion
 }
