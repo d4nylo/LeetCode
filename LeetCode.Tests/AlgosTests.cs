@@ -6,6 +6,8 @@ namespace LeetCode.Tests;
 
 public class AlgosTests
 {
+    #region Arrays & Hashing
+
     [Fact]
     public void Contains_Duplicate()
     {
@@ -321,4 +323,53 @@ public class AlgosTests
 
         #endregion
     }
+
+    #endregion
+
+    #region Two Pointers
+
+    [Fact]
+    public void Is_Palindrome()
+    {
+        #region Example 1
+
+        // Arrange
+        const string s1 = "A man, a plan, a canal: Panama";
+
+        // Act
+        var output1 = Algos.IsPalindrome(s1);
+
+        // Assert
+        Assert.True(output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        const string s2 = "race a car";
+
+        // Act
+        var output2 = Algos.IsPalindrome(s2);
+
+        // Assert
+        Assert.False(output2);
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        const string s3 = " ";
+
+        // Act
+        var output3 = Algos.IsPalindrome(s3);
+
+        // Assert
+        Assert.True(output3);
+
+        #endregion
+    }
+
+    #endregion
 }

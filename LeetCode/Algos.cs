@@ -1,7 +1,11 @@
-﻿namespace LeetCode;
+﻿using System.Text;
+
+namespace LeetCode;
 
 public static class Algos
 {
+    #region Arrays & Hashing
+
     // https://leetcode.com/problems/contains-duplicate/
     // Time Complexity: O(n) & Space Complexity: O(n)
     public static bool ContainsDuplicate(int[] nums)
@@ -222,4 +226,41 @@ public static class Algos
 
         return maxSequenceLength;
     }
+
+    #endregion
+
+    #region Two Pointers
+
+    // https://leetcode.com/problems/valid-palindrome/
+    public static bool IsPalindrome(string s)
+    {
+        var left = 0;
+        var right = s.Length - 1;
+
+        while (left < right)
+        {
+            if (!char.IsLetterOrDigit(s[left]))
+            {
+                left++;
+            }
+            else if (!char.IsLetterOrDigit(s[right]))
+            {
+                right--;
+            }
+            else
+            {
+                if (char.ToUpper(s[left]) != char.ToUpper(s[right]))
+                {
+                    return false;
+                }
+
+                left++;
+                right--;
+            }
+        }
+
+        return true;
+    }
+
+    #endregion
 }
