@@ -493,5 +493,35 @@ public class AlgosTests
         #endregion
     }
 
+    [Fact]
+    public void Trap()
+    {
+        #region Example 1
+
+        // Arrange
+        var height1 = new int[] {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+
+        // Act
+        var output1 = Algos.Trap(height1);
+
+        // Assert
+        Assert.Equal(6, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var height2 = new int[] {4, 2, 0, 3, 2, 5};
+
+        // Act
+        var output2 = Algos.Trap(height2);
+
+        // Assert
+        Assert.Equal(9, output2);
+
+        #endregion
+    }
+
     #endregion
 }
