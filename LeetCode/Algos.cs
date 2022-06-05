@@ -399,4 +399,35 @@ public static class Algos
     }
 
     #endregion
+
+    #region Sliding Window
+
+    // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+    public static int MaxProfit(int[] prices)
+    {
+        var left = 0; // buy
+        var right = 1; // sell
+        var maxProfit = 0;
+
+        while (right < prices.Length)
+        {
+            if (prices[left] < prices[right])
+            {
+                var profit = prices[right] - prices[left];
+
+                if (profit > maxProfit)
+                    maxProfit = profit;
+            }
+            else
+            {
+                left = right;
+            }
+
+            right++;
+        }
+
+        return maxProfit;
+    }
+
+    #endregion
 }

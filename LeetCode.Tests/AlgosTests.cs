@@ -524,4 +524,38 @@ public class AlgosTests
     }
 
     #endregion
+
+    #region Sliding Window
+
+    [Fact]
+    public void Max_Profit()
+    {
+        #region Example 1
+
+        // Arrange
+        var prices1 = new int[] {7, 1, 5, 3, 6, 4};
+
+        // Act
+        var output1 = Algos.MaxProfit(prices1);
+
+        // Assert
+        Assert.Equal(5, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var prices2 = new int[] {7, 6, 4, 3, 1};
+
+        // Act
+        var output2 = Algos.MaxProfit(prices2);
+
+        // Assert
+        Assert.Equal(0, output2);
+
+        #endregion
+    }
+
+    #endregion
 }
