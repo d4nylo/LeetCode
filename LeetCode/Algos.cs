@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace LeetCode;
+﻿namespace LeetCode;
 
 public static class Algos
 {
@@ -427,6 +425,38 @@ public static class Algos
         }
 
         return maxProfit;
+    }
+
+    // https://leetcode.com/problems/longest-substring-without-repeating-characters/
+    public static int LengthOfLongestSubstring(string s)
+    {
+        if (s.Length <= 1)
+            return s.Length;
+
+        int left = 0, right = 0;
+        var longest = 0;
+        var window = new HashSet<char>();
+
+        while (right < s.Length)
+        {
+            if (!window.Contains(s[right]))
+            {
+                window.Add(s[right]);
+                right++;
+            }
+            else
+            {
+                window.Remove(s[left]);
+                left++;
+            }
+
+            var currLongest = right - left;
+
+            if (currLongest > longest)
+                longest = currLongest;
+        }
+
+        return longest;
     }
 
     #endregion

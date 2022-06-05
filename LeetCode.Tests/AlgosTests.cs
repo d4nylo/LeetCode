@@ -557,5 +557,48 @@ public class AlgosTests
         #endregion
     }
 
+    [Fact]
+    public void Length_Of_Longest_Substring()
+    {
+        #region Example 1
+
+        // Arrange
+        const string s1 = "abcabcbb";
+
+        // Act
+        var output1 = Algos.LengthOfLongestSubstring(s1);
+
+        // Assert
+        Assert.Equal(3, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        const string s2 = "bbbbb";
+
+        // Act
+        var output2 = Algos.LengthOfLongestSubstring(s2);
+
+        // Assert
+        Assert.Equal(1, output2);
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        const string s3 = "pwwkew";
+
+        // Act
+        var output3 = Algos.LengthOfLongestSubstring(s3);
+
+        // Assert
+        Assert.Equal(3, output3);
+
+        #endregion
+    }
+
     #endregion
 }
