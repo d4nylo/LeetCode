@@ -558,7 +558,7 @@ public static class Algos
             }
         }
 
-        return true;
+        return stack.Count == 0;
     }
 
     #endregion
