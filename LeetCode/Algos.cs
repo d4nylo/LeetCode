@@ -459,5 +459,31 @@ public static class Algos
         return longest;
     }
 
+    // https://leetcode.com/problems/longest-repeating-character-replacement/
+    public static int CharacterReplacement(string s, int k)
+    {
+        var charCounts = new int[26];
+        int start = 0, maxCount = 0, maxLength = 0;
+
+        for (var end = 0; end < s.Length; end++)
+        {
+            charCounts[s[end] - 'A']++;
+
+            if (charCounts[s[end] - 'A'] > maxCount)
+                maxCount = charCounts[s[end] - 'A'];
+
+            while (end - start + 1 - maxCount > k)
+            {
+                charCounts[s[start] - 'A']--;
+                start++;
+            }
+
+            if (end - start + 1 > maxLength)
+                maxLength = end - start + 1;
+        }
+
+        return maxLength;
+    }
+
     #endregion
 }
