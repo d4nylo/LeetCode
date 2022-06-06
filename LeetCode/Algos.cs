@@ -561,5 +561,42 @@ public static class Algos
         return stack.Count == 0;
     }
 
+    // https://leetcode.com/problems/evaluate-reverse-polish-notation/
+    public static int EvalRPN(string[] tokens)
+    {
+        var stack = new Stack<int>();
+
+        foreach (var token in tokens)
+        {
+            if (token == "+" || token == "-" || token == "/" || token == "*")
+            {
+                var num1 = stack.Pop();
+                var num2 = stack.Pop();
+
+                switch (token)
+                {
+                    case "+":
+                        stack.Push(num1 + num2);
+                        break;
+                    case "-":
+                        stack.Push(num2 - num1);
+                        break;
+                    case "/":
+                        stack.Push(num2 / num1);
+                        break;
+                    case "*":
+                        stack.Push(num1 * num2);
+                        break;
+                }
+            }
+            else
+            {
+                stack.Push(Convert.ToInt32(token));
+            }
+        }
+
+        return stack.Peek();
+    }
+
     #endregion
 }

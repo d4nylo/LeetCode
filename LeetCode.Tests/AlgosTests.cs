@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using FluentAssertions;
 using Xunit;
 
@@ -675,6 +676,49 @@ public class AlgosTests
 
         // Assert
         Assert.False(output3);
+
+        #endregion
+    }
+
+    [Fact]
+    public void Eval_RPN()
+    {
+        #region Example 1
+
+        // Arrange
+        var tokens1 = new string[] {"2", "1", "+", "3", "*"};
+
+        // Act
+        var output1 = Algos.EvalRPN(tokens1);
+
+        // Assert
+        Assert.Equal(9, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var tokens2 = new string[] {"4", "13", "5", "/", "+"};
+
+        // Act
+        var output2 = Algos.EvalRPN(tokens2);
+
+        // Assert
+        Assert.Equal(6, output2);
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        var tokens3 = new string[] {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+
+        // Act
+        var output3 = Algos.EvalRPN(tokens3);
+
+        // Assert
+        Assert.Equal(22, output3);
 
         #endregion
     }
