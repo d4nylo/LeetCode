@@ -633,4 +633,51 @@ public class AlgosTests
     }
 
     #endregion
+
+    #region Stack
+
+    [Fact]
+    public void Is_Valid()
+    {
+        #region Example 1
+
+        // Arrange
+        const string s1 = "()";
+
+        // Act
+        var output1 = Algos.IsValid(s1);
+
+        // Assert
+        Assert.True(output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        const string s2 = "()[]{}";
+
+        // Act
+        var output2 = Algos.IsValid(s2);
+
+        // Assert
+        Assert.True(output2);
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        const string s3 = "(]";
+
+        // Act
+        var output3 = Algos.IsValid(s3);
+
+        // Assert
+        Assert.False(output3);
+
+        #endregion
+    }
+
+    #endregion
 }

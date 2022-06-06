@@ -485,5 +485,81 @@ public static class Algos
         return maxLength;
     }
 
+    // https://leetcode.com/problems/permutation-in-string/
+    // public static bool CheckInclusion(string s1, string s2)
+    // {
+    //     if (s1.Length > s2.Length)
+    //         return false;
+    //
+    //     var freqS1 = new int[26];
+    //     var freqS2 = new int[26];
+    //
+    //     for (var idx = 0; idx < s1.Length; idx++)
+    //     {
+    //         freqS1[s1[idx]-'a']++;
+    //     }
+    //     
+    //     for (var idx = 0; idx < s2.Length - s1.Length + 1; idx++)
+    //     {
+    //         if (idx == 0)
+    //         {
+    //             for (var idx2 = idx; idx2 < idx2 + s1.Length; idx2++)
+    //             {
+    //                 freqS2[s2[idx2] - 'a']++;
+    //             }
+    //         }
+    //         else
+    //         {
+    //             freqS2[s2[idx + s1.Length - 1] - 'a']++;
+    //         }
+    //
+    //         if (freqS1.SequenceEqual(freqS2))
+    //         {
+    //             return true;
+    //         }
+    //
+    //         freqS2[s2[idx] - 'a']--;
+    //     }
+    //
+    //     return false;
+    // }
+
+    #endregion
+
+    #region Stack
+
+    // https://leetcode.com/problems/valid-parentheses/
+    public static bool IsValid(string s)
+    {
+        var stack = new Stack<char>();
+        var closeToOpen = new Dictionary<char, char>()
+        {
+            {')', '('},
+            {']', '['},
+            {'}', '{'}
+        };
+
+        foreach (var ch in s)
+        {
+            if (closeToOpen.ContainsKey(ch))
+            {
+                if (stack.Count > 0 && stack.Peek() == closeToOpen[ch])
+                {
+                    stack.Pop();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                stack.Push(ch);
+            }
+        }
+
+        return true;
+    }
+
     #endregion
 }
