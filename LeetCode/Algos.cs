@@ -1,4 +1,6 @@
-﻿namespace LeetCode;
+﻿using Microsoft.VisualBasic;
+
+namespace LeetCode;
 
 public static class Algos
 {
@@ -596,6 +598,31 @@ public static class Algos
         }
 
         return stack.Peek();
+    }
+
+    // https://leetcode.com/problems/generate-parentheses/
+    public static IList<string> GenerateParenthesis(int n)
+    {
+        var res = new List<string>();
+
+        void Backtrack(List<string> arr, string currentString, int opened, int closed, int max)
+        {
+            if (currentString.Length == max * 2)
+            {
+                arr.Add(currentString);
+                return;
+            }
+
+            if (opened < max)
+                Backtrack(arr, currentString + "(", opened + 1, closed, max);
+
+            if (closed < opened)
+                Backtrack(arr, currentString + ")", opened, closed + 1, max);
+        }
+
+        Backtrack(res, "", 0, 0, n);
+
+        return res;
     }
 
     #endregion

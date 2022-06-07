@@ -723,5 +723,37 @@ public class AlgosTests
         #endregion
     }
 
+    [Fact]
+    public void Generate_Parenthesis()
+    {
+        #region Example 1
+
+        // Arrange
+        const int n1 = 3;
+
+        // Act
+        var output1 = Algos.GenerateParenthesis(n1);
+
+        // Assert
+        var expected1 = new List<string> {"((()))", "(()())", "(())()", "()(())", "()()()"};
+        output1.Should().BeEquivalentTo(expected1);
+
+        #endregion
+
+        #region Example 1
+
+        // Arrange
+        const int n2 = 1;
+
+        // Act
+        var output2 = Algos.GenerateParenthesis(n2);
+
+        // Assert
+        var expected2 = new List<string> {"()"};
+        output2.Should().BeEquivalentTo(expected2);
+
+        #endregion
+    }
+
     #endregion
 }
