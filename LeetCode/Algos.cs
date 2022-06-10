@@ -637,7 +637,7 @@ public static class Algos
 
         while (left <= right)
         {
-            var middle = (right + left) / 2;
+            var middle = (right + left) / 2; // Or... left + ((right-left) / 2)
 
             if (target > nums[middle])
             {
@@ -654,6 +654,61 @@ public static class Algos
         }
 
         return -1;
+    }
+
+    // https://leetcode.com/problems/search-a-2d-matrix/
+    public static bool SearchMatrix(int[][] matrix, int target)
+    {
+        var totalRows = matrix.Length;
+        var totalCols = matrix[0].Length;
+        var top = 0;
+        var bottom = totalRows - 1;
+
+        while (top <= bottom)
+        {
+            var middle = (top + bottom) / 2;
+
+            if (target > matrix[middle][totalCols - 1])
+            {
+                top = middle + 1;
+            }
+            else if (target < matrix[middle][0])
+            {
+                bottom = middle - 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        // None of the rows contains the target value.
+        if (!(top <= bottom))
+            return false;
+
+        var row = (top + bottom) / 2;
+        var left = 0;
+        var right = totalCols - 1;
+
+        while (left <= right)
+        {
+            var middle = (left + right) / 2;
+            
+            if (target > matrix[row][middle])
+            {
+                left = middle + 1;
+            }
+            else if (target < matrix[row][middle])
+            {
+                right = middle - 1;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     #endregion

@@ -755,14 +755,14 @@ public class AlgosTests
     }
 
     #endregion
-    
+
     #region Binary Search
 
     [Fact]
     public void Search()
     {
         #region Example 1
-        
+
         // Arrange
         var nums1 = new int[] {-1, 0, 3, 5, 9, 12};
         const int target1 = 9;
@@ -774,9 +774,9 @@ public class AlgosTests
         Assert.Equal(4, output1);
 
         #endregion
-        
+
         #region Example 2
-        
+
         // Arrange
         var nums2 = new int[] {-1, 0, 3, 5, 9, 12};
         const int target2 = 2;
@@ -786,6 +786,48 @@ public class AlgosTests
 
         // Assert
         Assert.Equal(-1, output2);
+
+        #endregion
+    }
+
+    [Fact]
+    public void SearchMatrix()
+    {
+        #region Example 1
+
+        // Arrange
+        var matrix1 = new int[][]
+        {
+            new int[] {1, 3, 5, 7},
+            new int[] {10, 11, 16, 20},
+            new int[] {23, 30, 34, 60}
+        };
+        const int target1 = 3;
+
+        // Act
+        var output1 = Algos.SearchMatrix(matrix1, target1);
+
+        // Assert
+        Assert.True(output1);
+
+        #endregion
+        
+        #region Example 2
+
+        // Arrange
+        var matrix2 = new int[][]
+        {
+            new int[] {1, 3, 5, 7},
+            new int[] {10, 11, 16, 20},
+            new int[] {23, 30, 34, 60}
+        };
+        const int target2 = 13;
+
+        // Act
+        var output2 = Algos.SearchMatrix(matrix2, target2);
+
+        // Assert
+        Assert.False(output2);
 
         #endregion
     }
