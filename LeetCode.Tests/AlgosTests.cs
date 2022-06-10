@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading;
 using FluentAssertions;
 using Xunit;
 
@@ -751,6 +750,42 @@ public class AlgosTests
         // Assert
         var expected2 = new List<string> {"()"};
         output2.Should().BeEquivalentTo(expected2);
+
+        #endregion
+    }
+
+    #endregion
+    
+    #region Binary Search
+
+    [Fact]
+    public void Search()
+    {
+        #region Example 1
+        
+        // Arrange
+        var nums1 = new int[] {-1, 0, 3, 5, 9, 12};
+        const int target1 = 9;
+
+        // Act
+        var output1 = Algos.Search(nums1, target1);
+
+        // Assert
+        Assert.Equal(4, output1);
+
+        #endregion
+        
+        #region Example 2
+        
+        // Arrange
+        var nums2 = new int[] {-1, 0, 3, 5, 9, 12};
+        const int target2 = 2;
+
+        // Act
+        var output2 = Algos.Search(nums2, target2);
+
+        // Assert
+        Assert.Equal(-1, output2);
 
         #endregion
     }

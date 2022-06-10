@@ -626,4 +626,35 @@ public static class Algos
     }
 
     #endregion
+
+    #region Binary Search
+
+    // https://leetcode.com/problems/binary-search/
+    public static int Search(int[] nums, int target)
+    {
+        var left = 0;
+        var right = nums.Length - 1;
+
+        while (left <= right)
+        {
+            var middle = (right + left) / 2;
+
+            if (target > nums[middle])
+            {
+                left = middle + 1;
+            }
+            else if (target < nums[middle])
+            {
+                right = middle - 1;
+            }
+            else
+            {
+                return middle;
+            }
+        }
+
+        return -1;
+    }
+
+    #endregion
 }
