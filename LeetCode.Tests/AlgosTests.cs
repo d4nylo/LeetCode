@@ -791,7 +791,7 @@ public class AlgosTests
     }
 
     [Fact]
-    public void SearchMatrix()
+    public void Search_Matrix()
     {
         #region Example 1
 
@@ -811,7 +811,7 @@ public class AlgosTests
         Assert.True(output1);
 
         #endregion
-        
+
         #region Example 2
 
         // Arrange
@@ -828,6 +828,66 @@ public class AlgosTests
 
         // Assert
         Assert.False(output2);
+
+        #endregion
+    }
+
+    [Fact]
+    public void Min_Eating_Speed()
+    {
+        #region Example 1
+
+        // Arrange
+        var piles1 = new int[] {3, 6, 7, 11};
+        const int h1 = 8;
+
+        // Act
+        var output1 = Algos.MinEatingSpeed(piles1, h1);
+
+        // Assert
+        Assert.Equal(4, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var piles2 = new int[] {30, 11, 23, 4, 20};
+        const int h2 = 5;
+
+        // Act
+        var output2 = Algos.MinEatingSpeed(piles2, h2);
+
+        // Assert
+        Assert.Equal(30, output2);
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        var piles3 = new int[] {30, 11, 23, 4, 20};
+        const int h3 = 6;
+
+        // Act
+        var output3 = Algos.MinEatingSpeed(piles3, h3);
+
+        // Assert
+        Assert.Equal(23, output3);
+
+        #endregion
+
+        #region Example 4
+
+        // Arrange
+        var piles4 = new int[] {805306368, 805306368, 805306368};
+        const int h4 = 1000000000;
+
+        // Act
+        var output4 = Algos.MinEatingSpeed(piles4, h4);
+
+        // Assert
+        Assert.Equal(3, output4);
 
         #endregion
     }

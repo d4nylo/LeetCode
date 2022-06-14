@@ -693,7 +693,7 @@ public static class Algos
         while (left <= right)
         {
             var middle = (left + right) / 2;
-            
+
             if (target > matrix[row][middle])
             {
                 left = middle + 1;
@@ -709,6 +709,35 @@ public static class Algos
         }
 
         return false;
+    }
+
+    // https://leetcode.com/problems/koko-eating-bananas/
+    public static int MinEatingSpeed(int[] piles, int h)
+    {
+        var left = 1;
+        var right = int.MaxValue;
+
+        while (left <= right)
+        {
+            var middle = left + ((right - left) / 2);
+            var hourSum = 0;
+
+            foreach (var p in piles)
+            {
+                hourSum += (p + middle - 1) / middle;
+            }
+
+            if (hourSum > h)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        return left;
     }
 
     #endregion
