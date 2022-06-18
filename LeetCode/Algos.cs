@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic;
-
-namespace LeetCode;
+﻿namespace LeetCode;
 
 public static class Algos
 {
@@ -696,6 +694,50 @@ public static class Algos
         }
 
         return left;
+    }
+
+    // https://leetcode.com/problems/search-in-rotated-sorted-array/
+    public static int SearchInRotatedSortedArray(int[] nums, int target)
+    {
+        var left = 0;
+        var right = nums.Length - 1;
+
+        while (left <= right)
+        {
+            var middle = (left + right) / 2;
+
+            if (target == nums[middle])
+            {
+                return middle;
+            }
+
+            // Left sorted portion
+            if (nums[left] <= nums[middle])
+            {
+                if (target > nums[middle] || target < nums[left])
+                {
+                    left = middle + 1;
+                }
+                else
+                {
+                    right = middle - 1;
+                }
+            }
+            // Right sorted portion
+            else
+            {
+                if (target < nums[middle] || target > nums[right])
+                {
+                    right = middle - 1;
+                }
+                else
+                {
+                    left = middle + 1;
+                }
+            }
+        }
+
+        return -1;
     }
 
     #endregion

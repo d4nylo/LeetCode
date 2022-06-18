@@ -892,5 +892,51 @@ public class AlgosTests
         #endregion
     }
 
+    [Fact]
+    public void Search_In_Rotated_Sorted_Array()
+    {
+        #region Example 1
+
+        // Arrange
+        var nums1 = new int[] {4, 5, 6, 7, 0, 1, 2};
+        const int target1 = 0;
+
+        // Act
+        var output1 = Algos.SearchInRotatedSortedArray(nums1, target1);
+
+        // Assert
+        Assert.Equal(4, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var nums2 = new int[] {4, 5, 6, 7, 0, 1, 2};
+        const int target2 = 3;
+
+        // Act
+        var output2 = Algos.SearchInRotatedSortedArray(nums2, target2);
+
+        // Assert
+        Assert.Equal(-1, output2);
+
+        #endregion
+        
+        #region Example 3
+
+        // Arrange
+        var nums3 = new int[] {1};
+        const int target3 = 0;
+
+        // Act
+        var output3 = Algos.SearchInRotatedSortedArray(nums3, target3);
+
+        // Assert
+        Assert.Equal(-1, output3);
+
+        #endregion
+    }
+
     #endregion
 }
