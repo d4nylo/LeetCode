@@ -922,7 +922,7 @@ public class AlgosTests
         Assert.Equal(-1, output2);
 
         #endregion
-        
+
         #region Example 3
 
         // Arrange
@@ -934,6 +934,49 @@ public class AlgosTests
 
         // Assert
         Assert.Equal(-1, output3);
+
+        #endregion
+    }
+
+    [Fact]
+    public void Find_Minimum_In_Rotated_Sorted_Array()
+    {
+        #region Example 1
+
+        // Arrange
+        var nums1 = new int[] {3, 4, 5, 1, 2};
+
+        // Act
+        var output1 = Algos.FindMinimumInRotatedSortedArray(nums1);
+
+        // Assert
+        Assert.Equal(1, output1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var nums2 = new int[] {4, 5, 6, 7, 0, 1, 2};
+
+        // Act
+        var output2 = Algos.FindMinimumInRotatedSortedArray(nums2);
+
+        // Assert
+        Assert.Equal(0, output2);
+
+        #endregion
+
+        #region Example 3
+
+        // Arrange
+        var nums3 = new int[] {11, 13, 15, 17};
+
+        // Act
+        var output3 = Algos.FindMinimumInRotatedSortedArray(nums3);
+
+        // Assert
+        Assert.Equal(11, output3);
 
         #endregion
     }

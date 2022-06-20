@@ -740,5 +740,37 @@ public static class Algos
         return -1;
     }
 
+    // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+    public static int FindMinimumInRotatedSortedArray(int[] nums)
+    {
+        var res = nums[0];
+        var left = 0;
+        var right = nums.Length - 1;
+
+        while (left <= right)
+        {
+            if (nums[left] < nums[right])
+            {
+                res = Math.Min(res, nums[left]);
+                break;
+            }
+
+            var middle = (left + right) / 2;
+
+            res = Math.Min(res, nums[middle]);
+
+            if (nums[middle] >= nums[left])
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        return res;
+    }
+
     #endregion
 }
