@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
@@ -739,7 +740,7 @@ public class AlgosTests
 
         #endregion
 
-        #region Example 1
+        #region Example 2
 
         // Arrange
         const int n2 = 1;
@@ -977,6 +978,68 @@ public class AlgosTests
 
         // Assert
         Assert.Equal(11, output3);
+
+        #endregion
+    }
+
+    #endregion
+
+    #region Linked List
+
+    // Helper
+    private string ConvertLinkedListToString(ListNode node)
+    {
+        var str = "";
+
+        while (node != null)
+        {
+            str += $"{node.val} -> ";
+            node = node.next;
+        }
+
+        str += "NULL";
+
+        return str;
+    }
+
+    [Fact]
+    public void ReverseLinkedList()
+    {
+        #region Example 1
+
+        // Arrange
+        var head1 = new ListNode(1,
+            new ListNode(2,
+                new ListNode(3,
+                    new ListNode(4,
+                        new ListNode(5)))));
+
+        // Act
+        var output1 = Algos.ReverseLinkedList(head1);
+        var outputStr1 = ConvertLinkedListToString(output1);
+
+        // Assert
+        var expected1 = new ListNode(5, new ListNode(4, new ListNode(3, new ListNode(2, new ListNode(1)))));
+        var expectedStr1 = ConvertLinkedListToString(expected1);
+
+        Assert.Equal(expectedStr1, outputStr1);
+
+        #endregion
+
+        #region Example 2
+
+        // Arrange
+        var head2 = new ListNode(1, new ListNode(2));
+
+        // Act
+        var output2 = Algos.ReverseLinkedList(head2);
+        var outputStr2 = ConvertLinkedListToString(output2);
+
+        // Assert
+        var expected2 = new ListNode(2, new ListNode(1));
+        var expectedStr2 = ConvertLinkedListToString(expected2);
+
+        Assert.Equal(expectedStr2, outputStr2);
 
         #endregion
     }

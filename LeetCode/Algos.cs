@@ -773,4 +773,24 @@ public static class Algos
     }
 
     #endregion
+
+    #region Linked List
+
+    // https://leetcode.com/problems/reverse-linked-list/
+    public static ListNode ReverseLinkedList(ListNode head)
+    {
+        ListNode prev = null;
+
+        while (head != null)
+        {
+            var next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+
+        return prev;
+    }
+
+    #endregion
 }
